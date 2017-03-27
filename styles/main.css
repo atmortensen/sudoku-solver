@@ -1,0 +1,35 @@
+table {
+	border-collapse: collapse;
+	margin: auto;
+	border: solid 3px #000;
+}
+
+td {
+	border: solid 1px #000;
+	height: 50px;
+	text-align: center;
+}
+
+td:nth-child(3n+0) {
+	border-right: solid 3px #000;
+}
+
+tr:nth-child(3n+0) {
+	border-bottom: solid 3px #000;
+}
+
+td input {
+	border: none;
+	width: 50px;
+	text-align: center;
+	font-size: 30px;
+	color: inherit;
+}
+
+td input:focus {
+	outline: none;
+}
+
+.warning {
+	color: #e60000;
+}
