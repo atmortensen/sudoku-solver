@@ -24,7 +24,7 @@
 		<table>
 			<tr ng-repeat="row in puzzle">
 				<td ng-repeat="num in row track by $index" ng-class="{warning: isNum(num) }">
-					<input type="tel" maxlength="1" ng-model="puzzle[$parent.$index][$index]"> 
+					<input type="tel" class="input" maxlength="1" ng-model="puzzle[$parent.$index][$index]"> 
 				</td>
 			</tr>
 		</table>
@@ -35,5 +35,18 @@
     <script src="app.js"></script> 
     <script src="js/mainCtrl.js"></script> 
     <script src="js/mainService.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    	setTimeout(function(){
+    		$('.input').keyup(function(){
+	        	var next = $(this).parent().next().find('.input');
+	        	if(next.length===0){
+	        		next = $(this).parent().parent().next().find('.input').first();
+	        	}
+		        next.focus();
+    		}); 	
+    	},1000);
+    	
+    </script>
 </body>
 </html>
