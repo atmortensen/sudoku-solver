@@ -95,7 +95,7 @@ app.service('mainService', function(){
 			        }
 		        }   
 		    }
-		    message = 'Puzzle completed in ' + steps + ' steps.';
+		    message = 'Puzzle completed in ' + steps.toLocaleString('en-US') + ' steps.';
 		    return {
 		    	puzzle: puzzle,
 		    	message: message

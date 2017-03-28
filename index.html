@@ -1,27 +1,35 @@
 <!DOCTYPE html>
 <html lang="en-us" ng-app="app">
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sudoku Solver</title>
     <meta charset="UTF-8">
     <meta name="description" content="Sudoku Solver">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="styles/footer.css">
     <link rel="stylesheet" type="text/css" href="styles/main.css">
     
 </head>
 <body ng-controller="mainCtrl">
-	<h2>{{message}}</h2>
-	<table>
-		<tr ng-repeat="row in puzzle">
-			<td ng-repeat="num in row track by $index" ng-class="{warning: isNum(num) }">
-				<input type="text" maxlength="1" ng-model="puzzle[$parent.$index][$index]"> 
-			</td>
-		</tr>
-	</table>
-	<button ng-click="solve(puzzle)">Solve!</button>
-	<button ng-click="reset(puzzle)">Reset</button>
-	<button ng-click="undo()">Undo</button>
-
+	<div class="container">
+		<div class="page-header">
+		    <h2>Suduko Solver</h2>
+		    <p>Bootstrap is used for styling and Angular is used as the MVC. Puzzle is solved using a <a href="https://en.wikipedia.org/wiki/Backtracking">backtracking algorithm</a>.</p>
+		    <button class="btn btn-success" ng-click="solve(puzzle)">Solve!</button>
+			<button class="btn btn-info" ng-click="reset(puzzle)">Reset</button>
+		</div>
+		<h3 class="text-success text-center">{{message}}</h3>
+		<table>
+			<tr ng-repeat="row in puzzle">
+				<td ng-repeat="num in row track by $index" ng-class="{warning: isNum(num) }">
+					<input type="text" maxlength="1" ng-model="puzzle[$parent.$index][$index]"> 
+				</td>
+			</tr>
+		</table>
+		
+	</div>
+	<div class="footer"><p class="container text-muted">Created by Alexander Mortensen</p></div>
     <script src="//code.angularjs.org/1.3.0-rc.2/angular.min.js"></script>
     <script src="app.js"></script> 
     <script src="js/mainCtrl.js"></script> 

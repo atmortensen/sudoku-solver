@@ -16,10 +16,6 @@ app.controller('mainCtrl', ['$scope', 'mainService', function($scope, mainServic
 	$scope.reset();
 	$scope.entered = JSON.parse(JSON.stringify($scope.puzzle));
 
-	$scope.undo = function(){
-		$scope.puzzle = JSON.parse(JSON.stringify($scope.entered));
-	};	
-
 	$scope.isNum = function(num){
 		if(num){
 			return (!String(num).match(/[1-9]/));

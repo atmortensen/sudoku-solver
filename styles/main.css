@@ -33,3 +33,18 @@ td input:focus {
 .warning {
 	color: #e60000;
 }
+
+.btn-info {
+	float: right;
+}
+
+@media screen and (max-width: 500px){
+	td {
+		height: 25px;
+	}
+
+	td input {
+		width: 25px;
+		font-size: 14px;
+	}
+}
