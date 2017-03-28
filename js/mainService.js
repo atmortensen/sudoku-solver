@@ -35,6 +35,8 @@ app.service('mainService', function(){
 		  var original = JSON.parse(JSON.stringify(puzzle));
 		  var backTrack = false;
 		  var steps = 0;
+		  var message;
+		  var error;
 		    // ROW LOOP
 		    for(var row=0; row<puzzle.length; row++){
 		        // COLUMN LOOP
@@ -43,10 +45,11 @@ app.service('mainService', function(){
 			      	var thisBox = thisRow[col];
 			      	// MAKE SURE CURRENT VALUE IS VALID
 			      	if(thisBox && !String(thisBox).match(/[1-9]/)){
-			      		message = 'There is an invalid character in your puzzle!';
+			      		error = 'There is an invalid character in your puzzle!';
 			      		return {
 			      			puzzle: puzzle,
-			      			message: message
+			      			message: message,
+			      			error: error
 			      		};
 			      	}
 			      	// CHECK IF BOX IS ALREADY DETERMINED
@@ -67,11 +70,12 @@ app.service('mainService', function(){
 			          		row-= 1; 
 			          		col = 7;
 			          	}
-			          	if(row<0){
-			          		message = 'Puzzle can not be solved.';
+			          	if(row<0 || steps>500000){
+			          		error = 'Puzzle can not be solved.';
 			          		return {
 			          			puzzle: puzzle,
-			          			message: message
+			          			message: message,
+			          			error: error
 			          		};
 			          	}
 			          }
@@ -86,10 +90,11 @@ app.service('mainService', function(){
 				        	}
 				        }
 				        if(row<0){
-			          		message = 'Puzzle can not be solved.';
+			          		error = 'Puzzle can not be solved.';
 			          		return {
 			          			puzzle: puzzle,
-			          			message: message
+			          			message: message,
+			          			error: error
 			          		};
 			          	}
 			        }
@@ -98,7 +103,8 @@ app.service('mainService', function(){
 		    message = 'Puzzle completed in ' + steps.toLocaleString('en-US') + ' steps.';
 		    return {
 		    	puzzle: puzzle,
-		    	message: message
+		    	message: message,
+		    	error: error
 		    };
 		}
 	};

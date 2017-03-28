@@ -20,6 +20,7 @@
 			<button class="btn btn-info" ng-click="reset(puzzle)">Reset</button>
 		</div>
 		<h3 class="text-success text-center">{{message}}</h3>
+		<h3 class="text-danger text-center">{{error}}</h3>
 		<table>
 			<tr ng-repeat="row in puzzle">
 				<td ng-repeat="num in row track by $index" ng-class="{warning: isNum(num) }">

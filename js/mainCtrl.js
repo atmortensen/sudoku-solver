@@ -12,6 +12,9 @@ app.controller('mainCtrl', ['$scope', 'mainService', function($scope, mainServic
 	     // 	             [null,null,null,null,null,null,null,null,null],
 	     // 	             [null,null,null,null,null,null,null,null,null],
 	     // 	             [null,null,null,null,null,null,null,null,null]];
+
+		$scope.error = '';
+		$scope.message = '';
 	}; 
 	$scope.reset();
 	$scope.entered = JSON.parse(JSON.stringify($scope.puzzle));
@@ -28,6 +31,7 @@ app.controller('mainCtrl', ['$scope', 'mainService', function($scope, mainServic
 		var puzzleObj = mainService.solve(puzzle);
 		$scope.puzzle = puzzleObj.puzzle;
 		$scope.message = puzzleObj.message;
+		$scope.error = puzzleObj.error;
 	};
 	
 }]);
