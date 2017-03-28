@@ -2,6 +2,7 @@ app.service('autoCursor', ['$document', function($document){
 
 	$document.ready(function(){
 		$('.input').keyup(function(e){
+			alert(e.which);
 			if(e.which===8){
 	        	var pre = $(this).parent().prev().find('.input');
 	        	if(pre.length===0){
