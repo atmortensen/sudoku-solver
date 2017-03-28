@@ -24,7 +24,7 @@
 		<table>
 			<tr ng-repeat="row in puzzle">
 				<td ng-repeat="num in row track by $index" ng-class="{warning: isNum(num) }">
-					<input type="text" maxlength="1" ng-model="puzzle[$parent.$index][$index]"> 
+					<input type="text" pattern="\d*" maxlength="1" ng-model="puzzle[$parent.$index][$index]"> 
 				</td>
 			</tr>
 		</table>
