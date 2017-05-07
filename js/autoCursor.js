@@ -19,6 +19,6 @@ app.service('autoCursor', ['$document', function($document){
 			}
 			
 		}); 	
-	},1000);
+	});
 
 }]);
